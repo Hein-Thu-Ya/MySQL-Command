@@ -9,7 +9,7 @@ show databases;
 ## Choose Database
 
 ```mysql
-user database_name
+use database_name;
 ```
 
 ## Create Database
