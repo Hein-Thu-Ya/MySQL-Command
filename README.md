@@ -90,3 +90,49 @@ WHERE `id` = 3;
 ```mysql
 DELETE FROM `students` WHERE id = 1;
 ```
+
+<br><br>
+
+# Data Control Language (DCL)
+
+## Create User
+
+```mysql
+create user 'username'@'%' identified by 'password';
+```
+
+## Delete User
+
+```mysql
+drop user 'username'@'%';
+```
+
+## Give Permission to User
+
+```mysql
+grant create on database_name.* to 'username'@'localhost'
+
+grant all privileges on database_name.* to 'username'@'localhost';
+
+grant all privileges on *.* to 'username'@'localhost';
+
+grant all privileges on *.* to 'username'@'localhost' with grant option;
+```
+
+## Remove All Permission
+
+```mysql
+revoke all privileges on *.* from 'username'@'localhost';
+
+revoke all privileges, grant option from 'username'@'localhost';
+
+flush privileges;
+```
+
+## Show Permission
+
+```mysql
+show grants;
+
+show grants for 'username'@'localhost';
+```
