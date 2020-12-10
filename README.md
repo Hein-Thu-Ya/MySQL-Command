@@ -136,3 +136,38 @@ show grants;
 
 show grants for 'username'@'localhost';
 ```
+
+<br>
+
+# One to Many Relationship
+
+## Inner Join
+
+```mysql
+select * from `students` inner join `courses` on students.course_id = courses.id;
+
+select 
+    students.name, students.name, students.gender, courses.name as course
+from `students`
+inner join `courses` on students.course_id = courses.id;
+```
+
+## Left Join
+
+```mysql
+select * from `courses` left join `students` on students.course_id = courses.id;
+```
+
+## Right Join
+
+```mysql
+select * from `students` right join `courses` on students.course_id = courses.id;
+```
+
+## Full Outer Join (Join)
+
+```mysql
+select * from `students` left join `courses` on students.course_id = courses.id
+union
+select * from `students` right join `courses` on students.course_id = courses.id;
+```
