@@ -149,7 +149,7 @@ select * from `students` inner join `courses` on students.course_id = courses.id
 
 ```mysql
 select 
-    students.name, students.name, students.gender, courses.name as course
+    students.name, students.email, students.gender, courses.name as course
 from `students`
 inner join `courses` on students.course_id = courses.id;
 ```
