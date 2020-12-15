@@ -145,7 +145,9 @@ show grants for 'username'@'localhost';
 
 ```mysql
 select * from `students` inner join `courses` on students.course_id = courses.id;
+```
 
+```mysql
 select 
     students.name, students.name, students.gender, courses.name as course
 from `students`
@@ -170,4 +172,63 @@ select * from `students` right join `courses` on students.course_id = courses.id
 select * from `students` left join `courses` on students.course_id = courses.id
 union
 select * from `students` right join `courses` on students.course_id = courses.id;
+```
+
+<br>
+
+# Many To Many Relationship
+
+## Inner Join
+
+```mysql
+select *
+    from students
+join course_student on students.id = course_student.student_id
+join courses on courses.id = course_student.course_id;
+```
+
+```mysql
+select 
+    students.name, students.email, students.gender, courses.name as course 
+from students
+    join course_student on students.id = course_student.student_id
+    join courses on courses.id = course_student.course_id;
+```
+
+```mysql
+select 
+    students.name, students.email, students.gender, courses.name as course 
+from students
+    join course_student on students.id = course_student.student_id
+    join courses on courses.id = course_student.course_id
+order by students.name asc;
+```
+
+```mysql
+select 
+    students.name, students.email, students.gender, courses.name as course 
+from students
+    join course_student on students.id = course_student.student_id
+    join courses on courses.id = course_student.course_id
+where courses.name = "PHP";
+```
+
+## Right Join
+
+```mysql
+select 
+    students.name, students.email, students.gender, courses.name as course 
+from course_student
+    join students on students.id = course_student.student_id
+    right join courses on courses.id = course_student.course_id;
+```
+
+## Left Join
+
+```mysql
+select 
+    students.name, students.email, students.gender, courses.name as course 
+from course_student
+    left join students on students.id = course_student.student_id
+    right join courses on courses.id = course_student.course_id;
 ```
